@@ -1,0 +1,21 @@
+# ArtVideoDL
+
+> ArtVideoDL (artvideodl.com) is a free online tool for downloading videos from DeviantArt. It lets anyone save DeviantArt videos as MP4 files to a computer or phone, with no sign up, no account, and no watermark added to the downloaded file.
+
+ArtVideoDL works by accepting a DeviantArt video page URL, fetching the original video source, and returning a direct MP4 download link. The tool runs entirely in the browser and does not require installing an app or browser extension. It is intended only for downloading videos that a user has the right to save, such as their own uploads or content explicitly permitted for download by the artist.
+
+## Pages
+
+- [DeviantArt Video Downloader](https://artvideodl.com/): Home page and main download tool. Paste a DeviantArt video URL to fetch and download it as an MP4, with a step-by-step guide, supported formats, and FAQ.
+- [DeviantArt Video Downloader Online](https://artvideodl.com/online/): Browser-based version of the downloader with no sign up required, covering supported devices and browsers.
+- [DeviantArt Video Download](https://artvideodl.com/video-download/): Focused guide to downloading DeviantArt videos in MP4 format, including expected output quality and download tips.
+- [Privacy Policy](https://artvideodl.com/privacy/): What data the site does and does not collect. No accounts, no stored videos, no personal information required.
+- [DMCA & Copyright Policy](https://artvideodl.com/dmca/): Copyright position and how to submit a takedown notice. The site hosts no video files itself.
+
+## Key facts
+
+- Free to use, no account or sign-up required.
+- Downloads are saved as standard MP4 files, playable on any modern device.
+- No watermark is added to downloaded videos.
+- Works on desktop and mobile browsers; no software installation needed.
+- Users are responsible for only downloading content they have the right to save.

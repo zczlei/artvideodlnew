@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://artvideodl.com
+Sitemap: https://artvideodl.com/sitemap.xml
