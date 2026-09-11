@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     'Download DeviantArt videos online for free. No sign up, no watermark. Save MP4 videos from DeviantArt to your device in seconds. Fast, free, works on all browsers.',
   generator: 'v0.app',
   applicationName: 'ArtVideoDL',
+  icons: {
+    icon: '/icon.svg',
+  },
 }
 
 export const viewport: Viewport = {

@@ -1,5 +1,7 @@
 import { DOWNLOAD_API_BASE, isDeviantArtUrl } from '@/lib/download-api'
 
+export const runtime = 'edge'
+
 export async function POST(request: Request) {
   let payload: unknown
 
