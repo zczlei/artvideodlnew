@@ -1,7 +1,5 @@
 import { DOWNLOAD_API_BASE, isValidJobId } from '@/lib/download-api'
 
-export const runtime = 'edge'
-
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ id: string; path: string[] }> },
