@@ -1,149 +1,217 @@
 import type { Metadata } from 'next'
-import { Ban, CheckCircle2, Laptop, Lock, RefreshCw, Smartphone, Trash2 } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
-import { HeroSection } from '@/components/hero-section'
 import { DownloadTool } from '@/components/download-tool'
-import { HowToSteps } from '@/components/how-to-steps'
-import { WhyChoose } from '@/components/why-choose'
-import { SupportedDevices } from '@/components/supported-devices'
-import { DownloadTips } from '@/components/download-tips'
-import { RelatedTools } from '@/components/related-tools'
-import { FaqSection, type Faq } from '@/components/faq-section'
-import { PageStructuredData } from '@/components/structured-data'
 
 const pageUrl = 'https://artvideodl.com/online/'
 
 export const metadata: Metadata = {
-  title: 'DeviantArt Video Downloader Online - No Sign Up',
+  title: 'DeviantArt Video Downloader Online - No Sign Up | ArtVideoDL',
   description:
-    'Use the DeviantArt video downloader online — paste a link, get MP4, no sign up required. Fast, free, works on all browsers and devices.',
-  alternates: {
-    canonical: pageUrl,
-  },
+    'Use the DeviantArt video downloader online — no install, no extension. Where the file lands in Chrome, Safari, Firefox, iPhone and Android, plus fixes when a download stalls.',
+  alternates: { canonical: pageUrl },
   openGraph: {
     type: 'website',
     url: pageUrl,
-    title: 'DeviantArt Video Downloader Online - No Sign Up',
+    title: 'DeviantArt Video Downloader Online - No Sign Up | ArtVideoDL',
     description:
-      'Use the DeviantArt video downloader online — paste a link, get MP4, no sign up required. Fast, free, works on all browsers.',
+      'Use the DeviantArt video downloader online — no install, no extension. Where the file lands in Chrome, Safari, Firefox, iPhone and Android, plus fixes when a download stalls.',
     siteName: 'ArtVideoDL',
   },
 }
 
+// 目标词：deviantart video downloader online
+// 这页只回答一件事：浏览器里到底怎么操作、文件去哪了、下不下来怎么办。
+// 首页答不了这些，所以这页有独立存在理由。
+
 const steps = [
   {
-    title: 'Open the Video Page on DeviantArt',
-    description:
-      "Go to deviantart.com and open the video you want to save. Make sure it's a public video post and open in its own page — not embedded in a browsing feed. Copy the full URL from your browser's address bar. It should look like https://www.deviantart.com/username/art/video-title.",
+    n: 1,
+    h: 'Open the Video Page on DeviantArt',
+    p: 'Go to deviantart.com and open the video you want to save. Make sure it is a public video post shown on its own page, not a thumbnail inside a browsing feed. Copy the full address from the bar at the top. DeviantArt video links end in a numeric ID, so the URL looks like https://www.deviantart.com/username/art/video-title-123456789.',
   },
   {
-    title: 'Paste the Link Right Here',
-    description:
-      'Come back to this page, paste the copied URL into the input box above, and click the Download button. The tool fetches the video source directly — no account, no install, no waiting.',
+    n: 2,
+    h: 'Paste the Link Right Here',
+    p: 'Come back to this page, drop the URL into the box above and hit Download. The tool reads the post, locates the video file inside it and returns a direct address — no account, no install, no queue.',
   },
   {
-    title: 'Save the MP4 to Your Device',
-    description:
-      'When the download is ready, click the save button. The file downloads as an MP4 in the highest quality available on the original post. No watermark is ever added, and the file is ready to watch or share immediately.',
-  },
-]
-
-const reasons = [
-  {
-    icon: Ban,
-    title: 'Nothing to Install',
-    description: 'No setup files, no dependencies, no system requirements. You just open this page and paste a link.',
-  },
-  {
-    icon: Smartphone,
-    title: 'Works on Every Device',
-    description: 'Android, iPhone, iPad, Windows, Mac, Linux, Chromebook. If it has a browser, it works.',
-  },
-  {
-    icon: Lock,
-    title: 'No Account or Sign-Up',
-    description:
-      'The moment you leave this page, no data about you stays behind. There is no profile to create, no email to confirm, no password to remember.',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Never Goes Out of Date',
-    description:
-      "Desktop apps break when operating systems update. Online tools always run the latest version because you're using it live.",
-  },
-  {
-    icon: Trash2,
-    title: 'Leaves No Trace',
-    description: "Nothing is installed on your device, so there's nothing to uninstall later.",
+    n: 3,
+    h: 'Save the MP4 to Your Device',
+    p: 'When the save button appears, click it. The file comes down as an MP4 at the highest quality the original post carries, with no watermark added. Where your browser puts it afterwards is covered further down.',
   },
 ]
 
-const devices = [
+const whyCards = [
   {
-    title: 'Desktop',
-    description: 'Windows, Mac, Linux — works in Chrome, Firefox, Safari, Edge, Opera, and Brave.',
+    h: 'Nothing to Install',
+    p: 'No setup files, no dependencies, no system requirements. Open the page, paste a link.',
   },
   {
-    title: 'Mobile',
-    description: 'Android and iOS phones & tablets. Works in all mobile browsers with a responsive interface.',
+    h: 'Works on Every Device',
+    p: 'Android, iPhone, iPad, Windows, Mac, Linux, Chromebook. If it has a browser, it works.',
   },
   {
-    title: 'No App Required',
-    description: 'No Play Store or App Store download needed. The tool runs 100% in your browser.',
+    h: 'No Account or Sign-Up',
+    p: 'No profile to create, no email to confirm, no password to remember — and nothing kept once the tab closes.',
+  },
+  {
+    h: 'Never Goes Out of Date',
+    p: 'Desktop apps break when the operating system updates. This page always runs the current version, because you are using it live.',
+  },
+]
+
+const landing = [
+  {
+    h: 'Chrome on Windows, Mac and Chromebook',
+    p: 'Files go to your Downloads folder unless you changed it. Press Ctrl + J (Mac: Cmd + Shift + J) to open the downloads list and confirm the save finished. To pick a location every time, go to Settings → Downloads and turn on Ask where to save each file before downloading.',
+  },
+  {
+    h: 'Safari on Mac',
+    p: 'Safari writes to whatever folder is set under Settings (Cmd + ,) → General → File download location. The down-arrow icon in the toolbar shows active and recent downloads. If nothing appears there, check whether a content-blocking extension is hiding the save before assuming the download failed.',
+  },
+  {
+    h: 'Firefox',
+    p: 'Firefox keeps its own download library — open it with Ctrl + Shift + J. Under Settings → General → Downloads you can switch on Always ask you where to save files, which is the safer habit on a computer other people use.',
+  },
+  {
+    h: 'iPhone and iPad (Safari on iOS)',
+    p: 'On iOS the MP4 lands in the Files app, not in Photos — the default path is set under Settings → Safari → Downloads. To move it into your camera roll, open the file in Files, tap the share icon and choose Save Video. Skipping that step is the single most common reason people report that an iPhone download did not work.',
+  },
+  {
+    h: 'Android (Chrome)',
+    p: 'Chrome writes to internal storage under Downloads. Open the Files app (or Files by Google → Downloads) to play it straight away, and long-press the file there to send it into another app.',
+  },
+]
+
+const fixes = [
+  {
+    h: 'A popup blocker cut the save',
+    p: 'A direct file link can look like a popup to an aggressive blocker. Allow popups for this site once, then run the link again — there is no need to lower your protection everywhere else.',
+  },
+  {
+    h: 'A privacy extension swallowed the file',
+    p: 'Content blockers occasionally treat a media URL as a tracking request. Pause the extension on this page and retry. If it works, that was the cause and nothing else needs changing.',
+  },
+  {
+    h: 'Nothing happens when you tap on mobile',
+    p: 'Some mobile browsers will not start a background download from a plain tap. Long-press the save button instead and choose Download linked file on Android, or Save to Files on iOS.',
+  },
+  {
+    h: 'The network refuses file transfers',
+    p: 'School, office and public Wi-Fi often block media file types outright. The page resolves the link, but the network stops the transfer. Switch to mobile data to confirm that is what happened.',
+  },
+  {
+    h: 'The file is there but zero bytes',
+    p: 'The connection dropped mid-transfer. Delete the partial file and run the same link again — retrying costs nothing and is not rate-limited.',
+  },
+  {
+    h: 'The browser flagged the download as unsafe',
+    p: 'Chrome and Edge both question files from domains they do not recognise. If the download shelf offers Keep, choosing it resumes the save: the MP4 is the same file the artist posted.',
+  },
+]
+
+const compare = [
+  {
+    way: 'Online page',
+    needs: 'Nothing — a tab',
+    dies: 'Never: it runs live',
+    access: 'Only the link you paste',
+  },
+  {
+    way: 'Desktop software',
+    needs: 'Installer, admin rights, updates',
+    dies: 'Breaks on OS updates',
+    access: 'Reads your file system',
+  },
+  {
+    way: 'Browser extension',
+    needs: 'Approval on install',
+    dies: 'Silently disabled by the store',
+    access: 'Sees every page you open',
   },
 ]
 
 const tips = [
-  "Use the video's own page URL — if the video is embedded in someone's gallery or journal, open it first and copy the URL from its own page. It makes the download more reliable.",
-  "The video must be public — private or friends-only DeviantArt posts can't be fetched by our tool. That's a privacy protection, not a bug.",
-  'Make sure the link ends with the video title — URLs like /art/video-title are the ones that work reliably.',
-  "Try again if the download fails — occasionally DeviantArt's servers respond slowly. Just paste the URL again after a few seconds.",
-  'Use a current browser — old browsers may block downloads. Keep your browser updated for the smoothest experience.',
+  'Keep the tab open until the save appears — closing early is the most common way a job gets abandoned.',
+  "Paste the video's own page URL. A link taken from a gallery or a share button may point at the post wrapper instead of the file.",
+  'If your browser warns that this site is trying to download multiple files, choose Allow — saving several clips in one sitting is normal use.',
+  "Check the browser's downloads list before searching the desktop; on most systems the file is already there before you notice it.",
+  'A current browser matters more than a fast computer. Older builds drop downloads silently rather than showing an error.',
 ]
 
-const faqs: Faq[] = [
+const faqs = [
   {
-    question: 'Can I use the DeviantArt video downloader online without installing anything?',
-    answer:
-      "Yes. This page is the entire tool — there's nothing to download, unzip, or run on your computer first. Open it in your browser, drop in a video link, and the conversion happens on our end while you wait.",
+    q: 'Can I use the DeviantArt video downloader online without installing anything?',
+    a: 'Yes. This page is the entire tool — nothing to download, unzip or run first. Open it, paste a video link, and the work happens on our servers while you wait.',
   },
   {
-    question: 'Is it safe to use an online DeviantArt video downloader?',
-    answer:
-      "We don't ask for your DeviantArt password, email, or any personal details — the only thing the tool touches is the video link you paste in. Nothing you enter here is linked back to your DeviantArt account.",
+    q: 'Do I need a browser extension to download DeviantArt videos online?',
+    a: 'No. An extension sits inside your browsing session and can see every page you open, which is far more access than saving one clip requires. A tab that opens, runs the job and closes is the lighter option.',
   },
   {
-    question: 'Why should I use an online downloader instead of desktop software?',
-    answer:
-      "Desktop tools need to be downloaded, granted permissions, and updated whenever they break — some also bundle unwanted extras. A browser-based downloader skips all of that: open the tab, run the job, close the tab when you're done.",
+    q: 'Is it safe to use an online downloader?',
+    a: 'The only thing this page touches is the video link you paste. There is no DeviantArt password prompt, no email, no personal detail — and nothing you enter is ever linked back to your DeviantArt account.',
   },
   {
-    question: 'Do I need a fast internet connection to use the online downloader?',
-    answer:
-      'A standard broadband or mobile connection is enough for most DeviantArt clips. Larger or longer videos simply take a little more time to process — there is no minimum speed requirement to use the tool itself.',
+    q: 'Can I use it on a school Chromebook or a work computer?',
+    a: 'Yes — there is no install and no admin rights involved. The one thing that can still stop you is the network itself, since filtered networks sometimes refuse file downloads outright.',
   },
   {
-    question: 'Can I use the online downloader on a public or shared computer?',
-    answer:
-      "Yes, since the tool doesn't require sign-in or store any account details, it's safe to use on a library, school, or work computer. Just remember to clear your browser's download folder afterward if the device is shared.",
+    q: 'Does the online downloader still work in incognito mode?',
+    a: 'It does. Private windows only stop your browser from storing history and cookies; they do not block downloads. If a private window is the reason nothing saved, the likelier cause is that it blocks popups by default.',
   },
   {
-    question: 'Does the online downloader keep a history of my downloaded videos?',
-    answer:
-      'No. We do not keep a dashboard, download log, or account history of what you have converted. Once your MP4 is saved to your device, our side of the process is finished.',
+    q: 'Will this work if DeviantArt is blocked on my network or in my country?',
+    a: "If deviantart.com itself is unreachable from your connection, this page cannot fetch the video either, because the file still lives on DeviantArt's servers. A different network is the usual workaround.",
   },
   {
-    question: 'Will the online downloader work if DeviantArt is blocked in my country?',
-    answer:
-      "If deviantart.com itself is inaccessible from your network, our tool cannot reach the video either, since it needs to fetch the file from DeviantArt's own servers. A VPN or different network is the usual workaround in that situation.",
+    q: 'Does using this page leave anything behind on my device?',
+    a: 'Only the file you choose to save. Your browser remembers the visit in its history unless you were in a private window, but nothing is installed and no background process keeps running.',
   },
   {
-    question: 'Can I bookmark this online downloader page for quick access?',
-    answer:
-      "Absolutely — bookmark this page and it's ready whenever you need it. Since everything runs live in your browser, there is nothing to reinstall or update between visits.",
+    q: 'Can I use this online downloader on a smart TV browser?',
+    a: 'The page loads, but most TV browsers have no usable place to write a file, so the save goes nowhere. Download on a phone or computer first, then cast the file to the TV.',
   },
 ]
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': 'https://artvideodl.com/online/#app',
+      name: 'DeviantArt Video Downloader Online',
+      url: 'https://artvideodl.com/online/',
+      applicationCategory: 'MultimediaApplication',
+      operatingSystem: 'Any (browser-based)',
+      browserRequirements: 'Requires JavaScript',
+      isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    },
+    {
+      '@type': 'HowTo',
+      '@id': 'https://artvideodl.com/online/#howto',
+      name: 'How to Download a DeviantArt Video Online',
+      totalTime: 'PT1M',
+      step: steps.map((s) => ({ '@type': 'HowToStep', name: s.h, text: s.p })),
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://artvideodl.com/online/#faq',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+}
+
+const h2 = 'mb-3 mt-10 text-xl font-bold text-foreground'
+const h3 = 'text-sm font-semibold text-foreground'
+const p = 'mt-1 text-sm leading-relaxed text-muted-foreground'
+const card = 'rounded-xl border border-border bg-card p-4'
 
 export default function OnlinePage() {
   return (
@@ -151,63 +219,157 @@ export default function OnlinePage() {
       <SiteHeader />
 
       <main className="flex-1">
-        <HeroSection
-          title="DeviantArt Video Downloader Online"
-          subtitle="Download DeviantArt videos online in MP4. No installation, no registration — works in any browser on any device."
-          pills={[
-            { icon: CheckCircle2, label: '100% Online' },
-            { icon: Lock, label: 'No Sign Up' },
-            { icon: Laptop, label: 'No Install' },
-            { icon: Smartphone, label: 'Any Device' },
-          ]}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <div className="px-4 pb-10">
+        <section className="mx-auto max-w-2xl px-4 pt-12 pb-6 text-center sm:pt-16">
+          <h1 className="text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            DeviantArt Video Downloader Online
+          </h1>
+          <p className="mt-3 text-balance text-base text-muted-foreground">
+            Download DeviantArt videos online in MP4. No installation, no registration — works in any
+            browser, on any device, and the file is yours in about a minute.
+          </p>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            {['100% Online', 'No Sign Up', 'No Install', 'Any Device'].map((t) => (
+              <span
+                key={t}
+                className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <div className="px-4 pb-6">
           <DownloadTool />
         </div>
 
-        <div className="mx-auto flex max-w-2xl flex-col gap-10 px-4 pb-14">
-          <HowToSteps
-            heading="How to Use This Online DeviantArt Video Downloader"
-            intro="No app to open, no software to launch — this page is the tool. Open it in your browser and follow these three steps to save a DeviantArt video."
-            steps={steps}
-          />
-          <WhyChoose
-            heading="Why Use an Online DeviantArt Video Downloader?"
-            intro="An online downloader is better than desktop software for nearly every use case. Here's why:"
-            reasons={reasons}
-          />
-          <SupportedDevices heading="Supported Devices & Browsers" devices={devices} />
-          <DownloadTips heading="Tips for the Best Experience" tips={tips} />
-          <RelatedTools currentPath="/online/" />
-          <FaqSection items={faqs} />
-        </div>
+        <section className="mx-auto max-w-2xl px-4">
+          <h2 className={h2}>How to Download a DeviantArt Video Online</h2>
+          <div className="space-y-3">
+            {steps.map((s) => (
+              <div key={s.n} className={card}>
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                    {s.n}
+                  </span>
+                  <h3 className={h3}>{s.h}</h3>
+                </div>
+                <p className={p}>{s.p}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-2xl px-4">
+          <h2 className={h2}>Where Your File Lands, Browser by Browser</h2>
+          <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+            Every browser chooses a different destination, and on iPhone it is not where most people
+            look first. These are the exact paths, so you are not hunting through your device after a
+            save that already worked.
+          </p>
+          <div className="space-y-3">
+            {landing.map((c) => (
+              <div key={c.h} className={card}>
+                <h3 className={h3}>{c.h}</h3>
+                <p className={p}>{c.p}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-2xl px-4">
+          <h2 className={h2}>When the Download Starts but Nothing Saves</h2>
+          <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+            Most failures here are not the video being unavailable — they are your browser or your
+            network quietly refusing a file transfer. Each of these has a one-step fix.
+          </p>
+          <div className="space-y-3">
+            {fixes.map((c) => (
+              <div key={c.h} className={card}>
+                <h3 className={h3}>{c.h}</h3>
+                <p className={p}>{c.p}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-2xl px-4">
+          <h2 className={h2}>Online Page vs Desktop Software vs an Extension</h2>
+          <div className="overflow-x-auto rounded-xl border border-border bg-card">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-border text-xs uppercase text-muted-foreground">
+                <tr>
+                  <th className="px-3 py-2 font-semibold">Method</th>
+                  <th className="px-3 py-2 font-semibold">Needs</th>
+                  <th className="px-3 py-2 font-semibold">What kills it</th>
+                  <th className="px-3 py-2 font-semibold">What it can see</th>
+                </tr>
+              </thead>
+              <tbody>
+                {compare.map((r) => (
+                  <tr key={r.way} className="border-b border-border last:border-0">
+                    <td className="px-3 py-2 font-medium text-foreground">{r.way}</td>
+                    <td className="px-3 py-2 text-muted-foreground">{r.needs}</td>
+                    <td className="px-3 py-2 text-muted-foreground">{r.dies}</td>
+                    <td className="px-3 py-2 text-muted-foreground">{r.access}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className={p}>
+            Desktop apps need installing, get left behind when the operating system updates, and often
+            bundle extras you did not ask for. Extensions sit inside your session and see every page you
+            open — a lot of permission for something you use three times a month. Running the job in a
+            tab means nothing is installed and nothing keeps running after you close the page.
+          </p>
+        </section>
+
+        <section className="mx-auto max-w-2xl px-4">
+          <h2 className={h2}>Why Use an Online Downloader</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {whyCards.map((c) => (
+              <div key={c.h} className={card}>
+                <h3 className={h3}>{c.h}</h3>
+                <p className={p}>{c.p}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-2xl px-4">
+          <h2 className={h2}>Small Things That Save You a Retry</h2>
+          <ul className="space-y-2">
+            {tips.map((t) => (
+              <li key={t} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                {t}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mx-auto max-w-2xl px-4 pb-16">
+          <h2 className={h2}>Frequently Asked Questions</h2>
+          <div className="space-y-2">
+            {faqs.map((f) => (
+              <details key={f.q} className="group rounded-xl border border-border bg-card p-4">
+                <summary className="cursor-pointer list-none text-sm font-semibold text-foreground marker:hidden">
+                  {f.q}
+                </summary>
+                <p className={p}>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
       </main>
 
       <SiteFooter />
-      <PageStructuredData
-        path="/online/"
-        webAppName="DeviantArt Video Downloader Online"
-        webAppDescription="Download DeviantArt videos online for free. No sign up, no watermark, works in any browser on any device."
-        breadcrumbName="DeviantArt Video Downloader Online"
-        howToName="How to Download DeviantArt Videos Online"
-        howToDescription="Use this online DeviantArt video downloader in three simple steps. No sign up, no installation."
-        howToSteps={[
-          {
-            name: 'Open the Video on DeviantArt',
-            text: "Go to deviantart.com and open the video you want to save. Make sure the video is public. Copy the full URL from your browser's address bar. It should look like https://www.deviantart.com/username/art/video-title.",
-          },
-          {
-            name: 'Paste the Link and Click Download',
-            text: 'Come back to this page, paste the copied URL into the input box above, and click the Download button. The tool will process the link online and fetch the video file for you.',
-          },
-          {
-            name: 'Save the MP4 to Your Device',
-            text: 'When the download is ready, click the save button. The video will be saved as an MP4 file on your phone, tablet, or computer — no watermark, no compression, no registration.',
-          },
-        ]}
-        faqs={faqs}
-      />
     </div>
   )
 }
